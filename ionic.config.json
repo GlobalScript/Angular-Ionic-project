@@ -1,0 +1,7 @@
+{
+  "name": "ionic-tracker",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
