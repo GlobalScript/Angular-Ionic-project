@@ -1,0 +1,19 @@
+<ion-content class="ion-padding">
+  <div class="content-wrapper">
+    <ion-grid>
+      <ion-row class="input-row">
+        <ion-col class="ion-text-center">
+          <span [innerHTML]="emotion.emoji" class="modal-emoji-item"></span>
+        </ion-col>
+        <ion-col class="ion-text-center">
+          <input type="text" [(ngModel)]="emotion.title" class="modal-editor-input" maxlength="15"
+                 (blur)="settingChange()" (keyup.enter)="settingChange()">
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-justify-content-center">
+         <span *ngFor="let emoji of emojiService.listOfEmojis" [innerHTML]="emoji" class="modal-emoji-item"
+               (click)="settingChange(emoji)"></span>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

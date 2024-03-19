@@ -1,0 +1,11 @@
+<app-header [headerSetting]="{backBtn: true}">
+  <ion-button color="medium" (click)="openBalanceEditor()">
+    <ion-icon name="create-outline">
+    </ion-icon>
+  </ion-button>
+</app-header>
+<ion-content>
+  <app-balance-chart></app-balance-chart>
+</ion-content>
+<app-balance-editor></app-balance-editor>
+

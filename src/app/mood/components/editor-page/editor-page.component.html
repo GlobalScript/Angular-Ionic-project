@@ -1,0 +1,18 @@
+<app-header [headerSetting]="{backBtn: true, link: '/mood'}">
+  <ion-button color="medium" (click)="emojiService.resetSetting()">
+  Скинути налаштування
+</ion-button>
+</app-header>
+<ion-content>
+  <div class="emoji">
+    <ul class="emoji-list">
+      <li *ngFor="let item of emojiList; let index = index" [class]="item.id" (click)="openEmojiEditor(item, index)">
+        <div class="emoji-item-level">
+          <div class="emoji-item-degree">{{item.level}}</div>
+        </div>
+        <div class="emoji-item-title">{{item.title}}</div>
+        <div class="emoji-item-emoji" [innerHTML]="item.emoji"></div>
+      </li>
+    </ul>
+  </div>
+  </ion-content>

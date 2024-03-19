@@ -1,0 +1,52 @@
+ion-content::part(background) {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.editor-wrapper {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+input {
+  cursor: pointer;
+}
+
+.areas {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 80vw;
+  padding: 0;
+  margin: 0;
+  background-color: var(--ion-background-color);
+  border-radius: 10px;
+}
+
+.item {
+  flex: 1 0 calc(50% - 10px);
+  padding: 10px;
+  margin: 5px;
+  border-radius: 10px;
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  color: var(--ion-text-dark-color);
+  font-weight: 600;
+}
+
+.item-level {
+  padding: 0 5px;
+}
+
+@media (min-width: 1200px) {
+  .item {
+    flex: 1 0 calc(25% - 10px);
+  }
+}

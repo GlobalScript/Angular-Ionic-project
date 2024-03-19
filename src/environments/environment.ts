@@ -3,7 +3,17 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: true,
+  firebase: {
+    projectId: 'mood-tracker-5dfdc',
+    appId: '1:263805802771:web:6d401c18058de41e3462e6',
+    databaseURL: 'https://mood-tracker-5dfdc-default-rtdb.europe-west1.firebasedatabase.app',
+    storageBucket: 'mood-tracker-5dfdc.appspot.com',
+    apiKey: 'AIzaSyCZt6x2QPTwWJQA8Xa1RAA97L6xw1RUcNw',
+    authDomain: 'mood-tracker-5dfdc.firebaseapp.com',
+    messagingSenderId: '263805802771',
+    measurementId: 'G-BW99F6MEWJ',
+  }
 };
 
 /*

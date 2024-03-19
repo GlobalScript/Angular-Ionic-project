@@ -1,0 +1,15 @@
+<app-header [headerSetting]="{backBtn: true, link: this.birthdayParam}">
+  <ion-button color="medium" (click)="scrollToTop()"><ion-icon name="arrow-up-outline"></ion-icon></ion-button>
+</app-header>
+<ion-content>
+<div class="wrapper">
+  <ion-card *ngFor="let card of description">
+    <ion-card-header>
+      <ion-card-title>{{card.title}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{card.text}}
+    </ion-card-content>
+  </ion-card>
+</div>
+</ion-content>

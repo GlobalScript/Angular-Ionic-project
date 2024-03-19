@@ -1,0 +1,16 @@
+<ion-content>
+  <div class="editor-wrapper" (click)="closeModal($event)">
+    <ul class="areas">
+      <li *ngFor="let label of areasLevels; index as index" class="item"
+          [ngStyle]="{'background-color': balanceChartService.colors[index]}">
+        <div class="item-header">
+          <div class="item-title">{{balanceChartService.polarAreaChartLabels[index]}}</div>
+          <div class="item-level">{{levelValues[index]}}</div>
+        </div>
+        <div class="item-range">
+          <input type="range" (input)="changeLevel($event, index)" [value]="levelValues[index]" min="0" max="10">
+        </div>
+      </li>
+    </ul>
+  </div>
+</ion-content>

@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-grid class="ion-text-center">
+      <ion-row class="ion-align-items-center">
+        <ion-col *ngIf="headerSetting?.backBtn">
+          <ion-button color="medium" [routerLink]="headerSetting.link || '/start'">
+            <ion-icon name="arrow-back-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col class="header-title">
+          <ng-content></ng-content>
+        </ion-col>
+        <ion-col>
+          <ion-button color="medium" (click)="openLogOutModal()" *ngIf="auth.isLoggedIn()">
+            <ion-icon name="log-out-outline"></ion-icon>
+          </ion-button>
+          <ion-button color="medium" routerLink="/login" *ngIf="!auth.isLoggedIn()">
+            <ion-icon name="log-in-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>

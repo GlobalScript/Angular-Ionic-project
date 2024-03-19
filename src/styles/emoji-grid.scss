@@ -1,0 +1,122 @@
+.emoji-list {
+  width: 100%;
+  margin: 0;
+  padding: 10px;
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.3vw;
+  grid-template-areas:
+        "joy enthusiasm "
+        "satisfy confidence"
+        "calm neutral"
+        "sorrow neutral"
+        "discomfort anxiety"
+        "despair hopeless";
+
+  li {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.6);
+    border-radius:  15px 5px 15px 5px;
+    background-color: var(--ion-color-element-background);
+    color: var(--ion-text-dark-color);
+    font-weight: 700;
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: 4px 4px 8px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+}
+
+.neutral {
+  grid-area: neutral;
+}
+
+.calm {
+  grid-area: calm;
+}
+
+.confidence {
+  grid-area: confidence;
+}
+
+.satisfy {
+  grid-area: satisfy;
+}
+
+.enthusiasm {
+  grid-area: enthusiasm;
+}
+
+.joy {
+  grid-area: joy;
+}
+
+.sorrow {
+  grid-area: sorrow;
+}
+
+.discomfort {
+  grid-area: discomfort;
+}
+
+.anxiety {
+  grid-area: anxiety;
+}
+
+.despair {
+  grid-area: despair;
+}
+
+.hopeless {
+  grid-area: hopeless;
+}
+
+.emoji-item-degree {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 30px;
+  width: 30px;
+  text-align: center;
+  line-height: 2.7;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.emoji-item-emoji {
+  font-size: 24px;
+}
+
+@media(min-width: 576px) {
+  .emoji-list {
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+        "joy enthusiasm satisfy"
+        "neutral calm confidence"
+        "neutral sorrow discomfort"
+        "hopeless despair anxiety";
+  }
+}
+
+@media(min-width: 992px) {
+  .emoji-list {
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-areas:
+            "neutral calm confidence satisfy enthusiasm joy"
+            "neutral sorrow discomfort anxiety despair hopeless";
+  }
+}
+

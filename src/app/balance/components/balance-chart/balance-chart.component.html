@@ -1,0 +1,24 @@
+<div class="chart-wrapper">
+  <div class="balance-chart">
+    <canvas
+      baseChart
+      [data]="polarAreaChartData"
+      [options]="polarAreaOptions"
+      [type]="'polarArea'"
+      (chartClick)="openAreaEditor($event)"
+    >
+    </canvas>
+  </div>
+  <div class="list-wrapper">
+    <ul class="balance-list">
+      <li *ngFor="let label of balanceChartServices.polarAreaChartLabels; index as i" (click)="openAreaEditor(i)">
+        <div class="marker-style"
+             [ngStyle]="{'background-color': balanceChartServices.colors[i]}">{{levelsAreas[i]}}</div>
+        {{label}}
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+

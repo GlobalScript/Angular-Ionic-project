@@ -1,0 +1,32 @@
+.wrapper {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+}
+
+ion-button {
+  width: 100%;
+}
+
+.date-time {
+  padding: 16px 0;
+}
+
+ion-datetime {
+  border-radius: 10px;
+}
+
+ion-datetime::part(calendar-day):focus {
+  background-color: #9ad162;
+  border-color: #9ad162;
+  color: #fff;
+}
+
+.date-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+

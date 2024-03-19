@@ -1,0 +1,15 @@
+<app-header [headerSetting]="{backBtn: true, link: '/notebook'}">
+  <ion-button color="medium" routerLink="/notebook">
+    <ion-icon name="checkmark-outline"></ion-icon>
+  </ion-button>
+</app-header>
+<ion-content>
+  <div class="wrapper">
+    <div class="title">
+      <input class="input-title" type="text" placeholder="Title" [(ngModel)]="inputValue">
+    </div>
+    <div class="content">
+      <textarea [(ngModel)]="textAreaValue" placeholder="Text" class="text-content"></textarea>
+    </div>
+  </div>
+</ion-content>

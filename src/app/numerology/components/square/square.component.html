@@ -1,0 +1,28 @@
+<app-header [headerSetting]="{backBtn: true, link: '/numerology'}">
+  <ion-button color="medium" [routerLink]="['/numerology/description', birthday]">Опис {{birthday | date: 'dd.MM.yyyy'}}</ion-button>
+</app-header>
+<ion-content>
+  <div class="wrapper">
+<div class="container">
+  <div class="parent-square">
+    <div class="small-square" *ngFor="let item of numbers" (click)="openModalDescription(item.title, item.description)">
+      <div class="square-content">
+        <div class="square-content-title">{{item.title}}</div>
+        <div class="square-content-result">{{item.result}}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lines-block">
+    <div class="small-square" *ngFor="let item of numbersRowAndCol" (click)="openModalDescription(item.title, item.description)">
+      <div class="square-content">
+        <div class="square-content-title">{{item.title}}</div>
+        <img class="square-content-img" [src]="item.img">
+        <div class="square-content-result">{{item.result}}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    </div>
+</ion-content>

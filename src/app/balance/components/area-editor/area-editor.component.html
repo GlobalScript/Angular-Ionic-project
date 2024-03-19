@@ -1,0 +1,13 @@
+<ion-content>
+  <ion-grid class="ion-padding area-content">
+    <ion-row class="ion-text-center ">
+      <ion-col class="area-text">{{areaTitle}}</ion-col>
+      <ion-col>{{areasLevels[areaIndex]}}</ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <input type="range" (blur)="closeModal()" (input)="changeLevel($event)" [value]="areasLevels[areaIndex]" min="0"
+             max="10">
+    </ion-row>
+  </ion-grid>
+</ion-content>
+

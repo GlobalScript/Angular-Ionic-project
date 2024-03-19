@@ -1,0 +1,11 @@
+<app-header>{{auth.getUserName()}}</app-header>
+<ion-content>
+  <div class="start-page">
+  <div class="content-wrapper">
+    <div class="square" *ngFor="let section of sections" [routerLink]="section.path" >
+      <ion-icon [name]="section.icon"></ion-icon>
+      <span>{{section.title}}</span>
+    </div>
+  </div>
+  </div>
+</ion-content>

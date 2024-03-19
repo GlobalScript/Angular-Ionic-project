@@ -1,0 +1,25 @@
+<app-header [headerSetting]="{backBtn: true}">{{timeStamp() | monthName}}</app-header>
+<ion-content>
+  <app-mood-chart (level)="openLevelEditor($event)"></app-mood-chart>
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col class="ion-text-center">
+        <ion-button color="medium" class="chart-slider" (click)="nextMonth(-1)">
+          <ion-icon name="arrow-back-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col class="ion-text-center">
+        <ion-button color="medium" class="chart-slider" routerLink="edit">
+          <ion-icon name="settings-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col class="ion-text-center">
+        <ion-button color="medium" class="chart-slider" (click)="nextMonth(1)">
+          <ion-icon name="arrow-forward-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <app-emoji-section [data]="showMonth" [emotionList]="emotionList" (scrollUp)="scrollToTop()"></app-emoji-section>
+</ion-content>
+

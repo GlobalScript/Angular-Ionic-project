@@ -1,0 +1,15 @@
+<app-header [headerSetting]="{backBtn: true}">
+  <ion-button color="medium" routerLink="create">
+    <ion-icon name="add-outline"></ion-icon>
+  </ion-button>
+</app-header>
+<ion-content>
+  <div class="note-wrapper">
+    <ul class="note-list">
+      <li *ngFor="let note of notes | async; index as i" class="note-item" (click)="readNote(note,i)">
+        <div class="note-date">{{note.timestamp | monthName: 'full'}}</div>
+        <div class="note-title">{{note.title}}</div>
+      </li>
+    </ul>
+  </div>
+</ion-content>

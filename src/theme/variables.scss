@@ -1,8 +1,26 @@
 // Ionic Variables and Theming. For more info, please see:
 // http://ionicframework.com/docs/theming/
 
+@import url('src/styles/modal-style.css');
+
 /** Ionic CSS Variables **/
 :root {
+  /** custom styles **/
+  --ion-background-color: #3C3F41FF;
+  --ion-background-color-rgb: 244, 245, 248;
+  --ion-modal-color: #3C3F41FF;
+  --ion-text-dark-color: #525455;
+  --ion-text-lihgt-color: #f7f8f9;
+  --ion-text-color-rgb: 128, 130, 137;
+
+  /** custom element background **/
+  --ion-color-element-background: #f7f8f9;
+  --ion-color-element-background-rgb: 242,242,242;
+  --ion-color-element-background-contrast: #000000;
+  --ion-color-element-background-contrast-rgb: 0,0,0;
+  --ion-color-element-background-shade: #d5d5d5;
+  --ion-color-element-background-tint: #f3f3f3;
+
   /** primary **/
   --ion-color-primary: #3880ff;
   --ion-color-primary-rgb: 56, 128, 255;
@@ -74,6 +92,16 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+}
+
+
+.ion-color-element-background {
+  --ion-color-base: var(--ion-color-element-background);
+  --ion-color-base-rgb: var(--ion-color-element-background-rgb);
+  --ion-color-contrast: var(--ion-color-element-background-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-element-background-contrast-rgb);
+  --ion-color-shade: var(--ion-color-element-background-shade);
+  --ion-color-tint: var(--ion-color-element-background-tint);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -236,9 +264,12 @@
 }
 
 html {
-  /* 
+  /*
    * For more information on dynamic font scaling, visit the documentation:
    * https://ionicframework.com/docs/layout/dynamic-font-scaling
    */
   --ion-dynamic-font: var(--ion-default-dynamic-font);
 }
+
+
+

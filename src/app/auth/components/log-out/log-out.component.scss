@@ -1,0 +1,17 @@
+.wrapper {
+  display: grid;
+  align-items: center;
+  height: 100%;
+  background-color: var(--ion-color-element-background);
+
+  h1 {
+    font-weight: bold;
+    color: var(--ion-text-dark-color);
+    text-transform: uppercase;
+  }
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}

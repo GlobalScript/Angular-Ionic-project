@@ -1,0 +1,26 @@
+.content-wrapper {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.input-row {
+  padding-bottom: 4vh;
+}
+
+.modal-editor-input {
+  max-width: 100%;
+  border: none;
+  background-color: #e0e0e0;
+  padding: 10px;
+  border-radius: 5px;
+  outline: none;
+  font-size: 16px;
+}
+
+.modal-emoji-item {
+  font-size: 36px;
+  cursor: pointer;
+}
+
