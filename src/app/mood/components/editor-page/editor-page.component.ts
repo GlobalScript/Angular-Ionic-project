@@ -37,7 +37,6 @@ export class EditorPageComponent implements OnInit, OnDestroy {
     if (topModal) await this.modalController.dismiss();
   }
 
-
   ngOnDestroy() {
     this.closeEmojiEditor();
     this.emojiListSub.unsubscribe();

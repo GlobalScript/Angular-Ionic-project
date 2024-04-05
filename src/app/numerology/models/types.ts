@@ -5,6 +5,11 @@ export interface Square {
   description: string;
 }
 
+export interface FullDescription {
+  title: string;
+  text: string;
+}
+
 export interface RowAndCol {
   title: string;
   img: string;

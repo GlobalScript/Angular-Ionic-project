@@ -1,7 +1,7 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import {IonicModule} from '@ionic/angular';
 
-import { EditorPageComponent } from './editor-page.component';
+import {EditorPageComponent} from './editor-page.component';
 
 describe('EditorPageComponent', () => {
   let component: EditorPageComponent;
@@ -9,7 +9,7 @@ describe('EditorPageComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ EditorPageComponent ],
+      declarations: [EditorPageComponent],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

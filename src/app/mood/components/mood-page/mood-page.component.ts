@@ -1,4 +1,4 @@
-import {Component, ViewChild, OnInit, OnDestroy} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {DataMonth, Emoji, Month} from '../../models/types';
 import {MoodChartComponent} from "../mood-chart/mood-chart.component";
@@ -51,8 +51,8 @@ export class MoodPageComponent implements OnInit, OnDestroy {
     });
   }
 
-  timeStamp(): number  {
-    if(!this.showMonth || !this.showMonth.timestamp) return Date.now();
+  timeStamp(): number {
+    if (!this.showMonth || !this.showMonth.timestamp) return Date.now();
     return this.showMonth.timestamp;
   }
 

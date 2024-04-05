@@ -9,10 +9,10 @@
   <div class="wrapper">
     <div class="date"><h5>{{noteBookService.noteData.timestamp | monthName: 'full'}}</h5></div>
     <div class="title">
-      <input type="text" placeholder="Title" [(ngModel)]="inputValue" class="input-title">
+      <input type="text" [placeholder]="'notebook.title' | translate" [(ngModel)]="inputValue" class="input-title">
     </div>
     <div class="content">
-      <textarea [(ngModel)]="textAreaValue" placeholder="Text" class="text-content"></textarea>
+      <textarea [(ngModel)]="textAreaValue" [placeholder]="'notebook.text' | translate" class="text-content"></textarea>
     </div>
   </div>
 </ion-content>

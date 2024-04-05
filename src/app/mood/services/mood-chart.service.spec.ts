@@ -1,6 +1,6 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { MoodChartService } from './mood-chart.service';
+import {MoodChartService} from './mood-chart.service';
 
 describe('MoodChartService', () => {
   let service: MoodChartService;

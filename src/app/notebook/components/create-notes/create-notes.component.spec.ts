@@ -1,7 +1,7 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import {IonicModule} from '@ionic/angular';
 
-import { CreateNotesComponent } from './create-notes.component';
+import {CreateNotesComponent} from './create-notes.component';
 
 describe('CreateNotesComponent', () => {
   let component: CreateNotesComponent;
@@ -9,7 +9,7 @@ describe('CreateNotesComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ CreateNotesComponent ],
+      declarations: [CreateNotesComponent],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

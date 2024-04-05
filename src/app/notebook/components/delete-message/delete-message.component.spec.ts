@@ -1,7 +1,7 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import {IonicModule} from '@ionic/angular';
 
-import { DeleteMessageComponent } from './delete-message.component';
+import {DeleteMessageComponent} from './delete-message.component';
 
 describe('DeleteMessageComponent', () => {
   let component: DeleteMessageComponent;
@@ -9,7 +9,7 @@ describe('DeleteMessageComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ DeleteMessageComponent ],
+      declarations: [DeleteMessageComponent],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

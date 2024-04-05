@@ -1,7 +1,7 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import {IonicModule} from '@ionic/angular';
 
-import { NotebookPageComponent } from './notebook-page.component';
+import {NotebookPageComponent} from './notebook-page.component';
 
 describe('NotebookPageComponent', () => {
   let component: NotebookPageComponent;
@@ -9,7 +9,7 @@ describe('NotebookPageComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ NotebookPageComponent ],
+      declarations: [NotebookPageComponent],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

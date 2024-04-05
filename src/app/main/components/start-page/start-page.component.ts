@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {AuthService} from "../../../auth/services/auth.service";
 
 @Component({
@@ -8,33 +8,30 @@ import {AuthService} from "../../../auth/services/auth.service";
 })
 export class StartPageComponent {
 
-  constructor(public auth: AuthService) { }
+  constructor(public auth: AuthService) {
+  }
 
-  sections = [
+  category = [
     {
-      title: "Настрій",
-      description: "",
-      icon: "analytics-outline",
-      path: '/mood'
+      title: "main.mood",
+      path: "/mood",
+      icon: "analytics-outline"
     },
     {
-      title: "Баланс",
-      description: "",
-      icon: "body-outline",
-      path: '/balance'
+      title: "main.balance",
+      path: "/balance",
+      icon: "body-outline"
     },
     {
-      title: "Щоденник",
-      description: "",
-      icon: "book-outline",
-      path: "/notebook"
+      title: "main.notebook",
+      path: "/notebook",
+      icon: "book-outline"
     },
     {
-      title: "Нумерологія",
-      description: "",
-      icon: "infinite-outline",
-      path: "/numerology"
-    }
+      title: "main.numerology",
+      path: "/numerology",
+      icon: "infinite-outline"
+    },
   ]
 
 }

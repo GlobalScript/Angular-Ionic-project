@@ -1,7 +1,7 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import {IonicModule} from '@ionic/angular';
 
-import { MoodChartComponent } from './mood-chart.component';
+import {MoodChartComponent} from './mood-chart.component';
 
 describe('MoodChartComponent', () => {
   let component: MoodChartComponent;
@@ -9,7 +9,7 @@ describe('MoodChartComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ MoodChartComponent ],
+      declarations: [MoodChartComponent],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

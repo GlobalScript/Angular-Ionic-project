@@ -8,7 +8,7 @@ import {ModalController} from "@ionic/angular";
   templateUrl: './balance-editor.component.html',
   styleUrls: ['./balance-editor.component.scss'],
 })
-export class BalanceEditorComponent implements OnInit{
+export class BalanceEditorComponent implements OnInit {
 
   @Input() areasLevels!: number[];
 
@@ -22,8 +22,8 @@ export class BalanceEditorComponent implements OnInit{
   }
 
   ngOnInit() {
-    if(this.areasLevels)
-    this.levelValues = this.areasLevels.slice();
+    if (this.areasLevels)
+      this.levelValues = this.areasLevels.slice();
   }
 
   changeLevel(event: Event, index: number) {

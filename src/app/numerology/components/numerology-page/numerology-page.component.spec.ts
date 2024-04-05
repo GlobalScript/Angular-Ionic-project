@@ -1,7 +1,7 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import {IonicModule} from '@ionic/angular';
 
-import { NumerologyPageComponent } from './numerology-page.component';
+import {NumerologyPageComponent} from './numerology-page.component';
 
 describe('NumerologyPageComponent', () => {
   let component: NumerologyPageComponent;
@@ -9,7 +9,7 @@ describe('NumerologyPageComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ NumerologyPageComponent ],
+      declarations: [NumerologyPageComponent],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

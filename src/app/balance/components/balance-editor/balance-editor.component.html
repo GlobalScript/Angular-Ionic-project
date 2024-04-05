@@ -4,7 +4,7 @@
       <li *ngFor="let label of areasLevels; index as index" class="item"
           [ngStyle]="{'background-color': balanceChartService.colors[index]}">
         <div class="item-header">
-          <div class="item-title">{{balanceChartService.polarAreaChartLabels[index]}}</div>
+          <div class="item-title">{{balanceChartService.polarAreaChartLabels[index] | translate}}</div>
           <div class="item-level">{{levelValues[index]}}</div>
         </div>
         <div class="item-range">

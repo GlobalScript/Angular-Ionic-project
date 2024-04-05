@@ -25,16 +25,18 @@ log.txt
 
 # Compiled output
 /dist
+/android
 /tmp
 /out-tsc
 /bazel-out
-
+environments/
 # Node
 /node_modules
 npm-debug.log
 yarn-error.log
 
 # IDEs and editors
+.vscode
 .idea/
 .project
 .classpath

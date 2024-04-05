@@ -25,7 +25,7 @@ export class NotebookCrudService {
   }
 
   async openDeleteMessage(index: number) {
-    if(!this.noteData) return;
+    if (!this.noteData) return;
     const modal = await this.modalController.create({
       component: DeleteMessageComponent,
       componentProps: {index},

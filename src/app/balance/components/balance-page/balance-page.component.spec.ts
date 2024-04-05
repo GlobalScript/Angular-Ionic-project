@@ -1,7 +1,7 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import {IonicModule} from '@ionic/angular';
 
-import { BalancePageComponent } from './balance-page.component';
+import {BalancePageComponent} from './balance-page.component';
 
 describe('BalancePageComponent', () => {
   let component: BalancePageComponent;
@@ -9,7 +9,7 @@ describe('BalancePageComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ BalancePageComponent ],
+      declarations: [BalancePageComponent],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

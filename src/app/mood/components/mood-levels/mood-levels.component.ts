@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {MoodEmojiService} from "../../services/mood-emoji.service";
-import {Month, Emoji} from "../../models/types";
+import {Emoji, Month} from "../../models/types";
 import {ModalController} from "@ionic/angular";
 
 @Component({
@@ -21,8 +21,8 @@ export class MoodLevelsComponent {
   @Input() emotionList!: Emoji[];
 
 
-  timeStamp(): number  {
-    if(!this.month || !this.month.timestamp) return Date.now();
+  timeStamp(): number {
+    if (!this.month || !this.month.timestamp) return Date.now();
     return this.month.timestamp;
   }
 

@@ -1,11 +1,12 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BalanceChartService {
 
-  constructor() { }
+  constructor() {
+  }
 
   colors = [
     "#FFB6C1",
@@ -19,14 +20,14 @@ export class BalanceChartService {
   ];
 
   polarAreaChartLabels = [
-    "Здоров\'я",
-    "Робота",
-    "Оточення",
-    "Стосунки",
-    "Відпочинок",
-    "Саморозвиток",
-    "Реалізація",
-    "Духовність",
+    "balance.health",
+    "balance.work",
+    "balance.environment",
+    "balance.relationShip",
+    "balance.relaxation",
+    "balance.selfImprovement",
+    "balance.fulfillment",
+    "balance.spirituality"
   ];
 
 }

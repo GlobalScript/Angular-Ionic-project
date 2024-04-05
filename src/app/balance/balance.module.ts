@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { BalanceRoutingModule } from './balance-routing.module';
+import {BalanceRoutingModule} from './balance-routing.module';
 import {IonicModule} from "@ionic/angular";
 import {BalancePageComponent} from "./components/balance-page/balance-page.component";
 import {BalanceEditorComponent} from "./components/balance-editor/balance-editor.component";
@@ -10,6 +10,7 @@ import {AreaEditorComponent} from "./components/area-editor/area-editor.componen
 import {NgChartsModule} from "ng2-charts";
 import {SharedModule} from "../shared/shared.module";
 import {MainModule} from "../main/main.module";
+import {TranslateModule} from "@ngx-translate/core";
 
 
 @NgModule({
@@ -25,7 +26,9 @@ import {MainModule} from "../main/main.module";
     IonicModule,
     NgChartsModule,
     SharedModule,
-    MainModule
+    MainModule,
+    TranslateModule
   ]
 })
-export class BalanceModule { }
+export class BalanceModule {
+}

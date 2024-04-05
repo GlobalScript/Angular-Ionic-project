@@ -1,7 +1,7 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import {IonicModule} from '@ionic/angular';
 
-import { SquareComponent } from './square.component';
+import {SquareComponent} from './square.component';
 
 describe('SquareComponent', () => {
   let component: SquareComponent;
@@ -9,7 +9,7 @@ describe('SquareComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ SquareComponent ],
+      declarations: [SquareComponent],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

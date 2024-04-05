@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { MoodRoutingModule } from './mood-routing.module';
+import {MoodRoutingModule} from './mood-routing.module';
 import {MoodPageComponent} from "./components/mood-page/mood-page.component";
 import {MoodLevelsComponent} from "./components/mood-levels/mood-levels.component";
 import {MoodChartComponent} from "./components/mood-chart/mood-chart.component";
@@ -13,8 +13,8 @@ import {NgChartsModule} from "ng2-charts";
 import {FormsModule} from "@angular/forms";
 import {MonthNamePipe} from "../shared/pipes/month-name.pipe";
 import {EditorPageComponent} from "./components/editor-page/editor-page.component";
-import {HeaderComponent} from "../main/components/header/header.component";
 import {MainModule} from "../main/main.module";
+import {TranslateModule} from "@ngx-translate/core";
 
 
 @NgModule({
@@ -33,8 +33,10 @@ import {MainModule} from "../main/main.module";
     IonicModule,
     NgChartsModule,
     FormsModule,
-    MainModule
+    MainModule,
+    TranslateModule
   ],
   providers: [MonthNamePipe],
 })
-export class MoodModule { }
+export class MoodModule {
+}

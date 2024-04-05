@@ -1,7 +1,7 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import {IonicModule} from '@ionic/angular';
 
-import { MoodPageComponent } from './mood-page.component';
+import {MoodPageComponent} from './mood-page.component';
 
 describe('MoodPageComponent', () => {
   let component: MoodPageComponent;
@@ -9,7 +9,7 @@ describe('MoodPageComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ MoodPageComponent ],
+      declarations: [MoodPageComponent],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

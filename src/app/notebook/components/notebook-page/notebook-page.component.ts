@@ -3,6 +3,7 @@ import {NotebookCrudService} from "../../services/notebook-crud.service";
 import {Router} from "@angular/router";
 import {Observable} from "rxjs";
 import {Note} from "../../models/types";
+import {AuthService} from "../../../auth/services/auth.service";
 
 @Component({
   selector: 'app-notebook-page',
@@ -11,8 +12,13 @@ import {Note} from "../../models/types";
 })
 export class NotebookPageComponent implements OnInit {
   notes!: Observable<Note[]>
+  today: number = Date.now();
 
-  constructor(public notebookService: NotebookCrudService, private router: Router) {
+  constructor(
+    public notebookService: NotebookCrudService,
+    private router: Router,
+    public auth: AuthService
+  ) {
   }
 
   ngOnInit() {

@@ -3,7 +3,8 @@
     <div class="content">
       <div class="modal-title">
         <h3 class="ion-text-center">{{timeStamp() | monthName: day}}</h3>
-        <h3 class="ion-text-center">Рівень {{month.levels[day - 1]}}</h3>
+        <h3 class="ion-text-center">
+          <span>{{"mood.level" | translate}}</span>&nbsp;<span>{{month.levels[day - 1]}}</span></h3>
       </div>
       <ul class="emoji-list">
         <li *ngFor="let item of emotionList; let index = index" (click)="selectedLevel(item.level)"

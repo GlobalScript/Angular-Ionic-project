@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {DataMonth} from '../models/types';
-import {Observable, map, first} from 'rxjs';
+import {first, map, Observable} from 'rxjs';
 import {AuthService} from 'src/app/auth/services/auth.service';
 import {MoodChartService} from "./mood-chart.service";
 
@@ -40,7 +40,7 @@ export class MoodCrudService {
       .valueChanges().pipe(map(data => data?.months ? data.months : []));
   }
 
- async updateMonth(month: DataMonth) {
+  async updateMonth(month: DataMonth) {
     this.authService.getUserRef()
       .valueChanges()
       .pipe(first(), map(data => data?.months ? data.months : []))

@@ -3,14 +3,14 @@
   <div class="wrapper ion-padding">
     <div class="wrapper-date">
       <div class="indication">
-        <ion-button (click)="calculate()" color="medium">Вкажіть дату народження</ion-button>
+        <ion-button (click)="calculate()" color="medium">{{'numerology.birthDay' | translate}}</ion-button>
       </div>
       <div class="date-time">
-        <ion-datetime presentation="date" [(ngModel)]="dateTime" [preferWheel]="true" #datetimepicker size="cover"></ion-datetime>
+        <ion-datetime presentation="date" [(ngModel)]="dateTime" [preferWheel]="true" #datetimepicker
+                      size="cover"></ion-datetime>
       </div>
       <div class="date-actions">
-        <ion-button color="medium" (click)="dateReset()">Скинути</ion-button>
-        <ion-button color="medium" (click)="calculate()">Далі</ion-button>
+        <ion-button color="medium" (click)="calculate()">{{'numerology.next' | translate}}</ion-button>
       </div>
     </div>
   </div>

@@ -14,7 +14,7 @@
       <li *ngFor="let label of balanceChartServices.polarAreaChartLabels; index as i" (click)="openAreaEditor(i)">
         <div class="marker-style"
              [ngStyle]="{'background-color': balanceChartServices.colors[i]}">{{levelsAreas[i]}}</div>
-        {{label}}
+        {{label | translate}}
       </li>
     </ul>
   </div>

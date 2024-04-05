@@ -1,4 +1,4 @@
-import { MonthNamePipe } from './month-name.pipe';
+import {MonthNamePipe} from './month-name.pipe';
 
 describe('MonthNamePipe', () => {
   it('create an instance', () => {

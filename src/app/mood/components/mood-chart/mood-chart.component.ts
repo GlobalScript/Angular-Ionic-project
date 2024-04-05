@@ -1,22 +1,32 @@
-import { Component, ViewChild, Output, EventEmitter } from '@angular/core';
-import { ChartOptions, ChartConfiguration } from "chart.js";
-import { BaseChartDirective } from 'ng2-charts';
-import { MonthNamePipe } from 'src/app/shared/pipes/month-name.pipe';
-import { Month } from "../../models/types";
+import {Component, EventEmitter, OnDestroy, OnInit, Output, ViewChild} from '@angular/core';
+import {ChartConfiguration, ChartOptions} from "chart.js";
+import {BaseChartDirective} from 'ng2-charts';
+import {MonthNamePipe} from 'src/app/shared/pipes/month-name.pipe';
+import {Month} from "../../models/types";
+import {TranslateService} from "@ngx-translate/core";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-mood-chart',
   templateUrl: './mood-chart.component.html',
   styleUrls: ['./mood-chart.component.scss'],
 })
-export class MoodChartComponent {
+export class MoodChartComponent implements OnInit, OnDestroy {
 
   @Output() level = new EventEmitter<number>();
   @ViewChild(BaseChartDirective) chart!: BaseChartDirective;
 
-  constructor(public monthName: MonthNamePipe) {
+  translateSub!: Subscription;
+  toolTipTitle!: unknown;
+  toolTipLabel!: unknown;
+  toolTipBeforeTitle!: unknown;
+
+  constructor(public monthName: MonthNamePipe, private translateService: TranslateService) {
   }
 
+  ngOnInit() {
+    this.getTranslations();
+  }
 
   showChart(showMonth: Month) {
     if (this.chart.data && this.chart.chart) {
@@ -30,6 +40,21 @@ export class MoodChartComponent {
     if (!event.active.length) return;
     const index: number = event.active[0].index + 1;
     this.level.emit(index)
+  }
+
+  getTranslations() {
+    this.translateSub = this.translateService
+      .get(['mood.chart.title', 'mood.chart.label', 'mood.chart.beforeTitle'])
+      .subscribe(translations => {
+        const translateValues = Object.values(translations);
+        this.toolTipTitle = translateValues[0];
+        this.toolTipLabel = translateValues[1];
+        this.toolTipBeforeTitle = translateValues[2];
+      });
+  }
+
+  ngOnDestroy() {
+    this.translateSub.unsubscribe();
   }
 
   lineChartData: ChartConfiguration<'line'>['data'] = {
@@ -72,16 +97,16 @@ export class MoodChartComponent {
         enabled: true,
         displayColors: false,
         callbacks: {
-          label: function (context) {
+          label: (context) => {
             const datasetLabel = context.formattedValue;
-            return `Рівень ${datasetLabel}`;
+            return `${this.toolTipLabel} ${datasetLabel}`;
           },
-          title: function (context) {
+          title: (context) => {
             const datasetTitle = context[0].label;
-            return `День ${datasetTitle}`;
+            return `${this.toolTipTitle} ${datasetTitle}`;
           },
-          beforeTitle: function (context) {
-            return 'Натисніть на мітку'
+          beforeTitle: (context) => {
+            return `${this.toolTipBeforeTitle}`
           }
         },
       },

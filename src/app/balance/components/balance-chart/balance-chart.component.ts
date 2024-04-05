@@ -1,11 +1,12 @@
-import { Component, ViewChild, OnDestroy } from '@angular/core';
-import { BaseChartDirective } from "ng2-charts";
-import { ChartData, ChartOptions } from 'chart.js';
-import { BalanceChartService } from "../../services/balance-chart.service";
-import { Subscription } from "rxjs";
-import { AreaEditorComponent } from "../area-editor/area-editor.component";
-import { ModalController } from '@ionic/angular';
-import { BalanceCrudService } from "../../services/balance-crud.service";
+import {Component, OnDestroy, ViewChild} from '@angular/core';
+import {BaseChartDirective} from "ng2-charts";
+import {ChartData, ChartOptions} from 'chart.js';
+import {BalanceChartService} from "../../services/balance-chart.service";
+import {Subscription} from "rxjs";
+import {AreaEditorComponent} from "../area-editor/area-editor.component";
+import {ModalController} from '@ionic/angular';
+import {BalanceCrudService} from "../../services/balance-crud.service";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-balance-chart',
@@ -16,24 +17,31 @@ import { BalanceCrudService } from "../../services/balance-crud.service";
 
 export class BalanceChartComponent implements OnDestroy {
 
-  balanceSub!: Subscription;
   levelsAreas: number[] = [];
+  translateSub!: Subscription;
 
   @ViewChild(BaseChartDirective) chart!: BaseChartDirective;
 
   constructor(
     public balanceChartServices: BalanceChartService,
     private balanceCRUDService: BalanceCrudService,
-    public modalController: ModalController
+    public modalController: ModalController,
+    private translateService: TranslateService
   ) {
   }
 
+
   showChart(areas: number[]) {
-    this.levelsAreas = areas;
-    if (this.chart.data && this.chart.chart) {
-      this.chart.chart.data.datasets[0].data = areas;
-      this.chart.chart.update("show");
-    }
+    this.translateSub = this.translateService
+      .get(this.balanceChartServices.polarAreaChartLabels)
+      .subscribe(translations => {
+        this.levelsAreas = areas;
+        if (this.chart.data && this.chart.chart) {
+          this.chart.chart.data.datasets[0].data = areas;
+          this.chart.chart.data.labels = Object.values(translations);
+          this.chart.chart.update("show");
+        }
+      });
   }
 
   async openAreaEditor(event: any) {
@@ -60,17 +68,18 @@ export class BalanceChartComponent implements OnDestroy {
     return await modal.present();
   }
 
- async closeAreaEditor() {
-   const topModal = await this.modalController.getTop();
-   if (topModal) await this.modalController.dismiss();
+  async closeAreaEditor() {
+    const topModal = await this.modalController.getTop();
+    if (topModal) await this.modalController.dismiss();
   }
 
   ngOnDestroy() {
-   this.closeAreaEditor();
+    this.closeAreaEditor();
+    this.translateSub.unsubscribe();
   }
 
   polarAreaChartData: ChartData<'polarArea'> = {
-    labels: this.balanceChartServices.polarAreaChartLabels,
+    labels: [],
     datasets: [
       {
         data: [],

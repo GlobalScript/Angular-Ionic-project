@@ -1,9 +1,8 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { MonthNamePipe } from './pipes/month-name.pipe';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {MonthNamePipe} from './pipes/month-name.pipe';
 import {IonicModule} from "@ionic/angular";
 import {SharedRoutingModule} from "./shared-routing.module";
-
 
 
 @NgModule({
@@ -19,4 +18,5 @@ import {SharedRoutingModule} from "./shared-routing.module";
     MonthNamePipe
   ]
 })
-export class SharedModule { }
+export class SharedModule {
+}

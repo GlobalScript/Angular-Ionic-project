@@ -1,5 +1,5 @@
-import {Component, OnInit, OnDestroy} from '@angular/core';
-import {Router, NavigationEnd} from '@angular/router';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {NavigationEnd, Router} from '@angular/router';
 import {Subscription} from "rxjs";
 import {NotebookCrudService} from "../../services/notebook-crud.service";
 
@@ -13,7 +13,10 @@ export class CreateNotesComponent implements OnInit, OnDestroy {
   inputValue!: string;
   textAreaValue!: string;
 
-  constructor(private router: Router, private noteBookService: NotebookCrudService) {
+  constructor(
+    private router: Router,
+    private noteBookService: NotebookCrudService,
+  ) {
   }
 
   ngOnInit() {

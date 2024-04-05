@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {NumerologyPageComponent} from "./components/numerology-page/numerology-page.component";
 import {SquareComponent} from "./components/square/square.component";
 import {DescriptionComponent} from "./components/description/description.component";
@@ -14,4 +14,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class NumerologyRoutingModule { }
+export class NumerologyRoutingModule {
+}

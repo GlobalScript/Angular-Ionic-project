@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Emoji} from '../models/types';
 import {AuthService} from 'src/app/auth/services/auth.service';
-import {Observable, map, first} from 'rxjs';
+import {first, map, Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,7 @@ export class MoodEmojiService {
       .pipe(map(data => data?.emotions ? data.emotions : this.scaleOfEmotions))
   }
 
- async editEmotion(title: string, emoji: string, index: number) {
+  async editEmotion(title: string, emoji: string, index: number) {
     this.authService.getUserRef().valueChanges().pipe(first()).subscribe((data) => {
       let emotions!: Emoji[];
       if (data?.emotions) emotions = data.emotions;
@@ -28,75 +28,75 @@ export class MoodEmojiService {
     })
   }
 
- async resetSetting() {
-   await this.authService.getUserRef().update({emotions: this.scaleOfEmotions});
+  async resetSetting() {
+    await this.authService.getUserRef().update({emotions: this.scaleOfEmotions});
   }
 
   private scaleOfEmotions: Emoji[] =
     [
       {
         level: 0,
-        title: "Нейтральний",
+        title: "mood.neutral",
         id: 'neutral',
         emoji: '&#128566;'
       },
       {
         level: 1,
-        title: "Спокій",
+        title: "mood.calm",
         id: 'calm',
         emoji: '&#128578;'
       },
       {
         level: 2,
-        title: "Цікавість",
+        title: "mood.confidence",
         id: 'confidence',
         emoji: '&#128521;'
       },
       {
         level: 3,
-        title: "Захоплення",
+        title: "mood.satisfy",
         id: 'satisfy',
-        emoji: '&#129321;'
+        emoji: '&#128525;'
       },
       {
         level: 4,
-        title: "Задоволення",
+        title: "mood.enthusiasm",
         id: 'enthusiasm',
         emoji: '&#128522;'
       },
       {
         level: 5,
-        title: "Радість",
+        title: "mood.joy",
         id: 'joy',
         emoji: '&#128513;'
       },
       {
         level: -1,
-        title: "Нудьга",
+        title: "mood.sorrow",
         id: 'sorrow',
         emoji: '&#128580;'
       },
       {
         level: -2,
-        title: "Злість",
+        title: "mood.discomfort",
         id: 'discomfort',
         emoji: '&#128556;'
       },
       {
         level: -3,
-        title: "Тривога",
+        title: "mood.anxiety",
         id: 'anxiety',
         emoji: '&#128543;'
       },
       {
         level: -4,
-        title: "Сум",
+        title: "mood.despair",
         id: 'despair',
         emoji: '&#128542;'
       },
       {
         level: -5,
-        title: "Апатія",
+        title: "mood.hopeless",
         id: 'hopeless',
         emoji: '&#128577;'
       },

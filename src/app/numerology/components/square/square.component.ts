@@ -1,34 +1,37 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {NumerologyService} from "../../services/numerology.service";
 import {ActivatedRoute} from "@angular/router";
-import {Square} from "../../models/types";
-import {RowAndCol} from "../../models/types";
+import {RowAndCol, Square} from "../../models/types";
 import {ModalController} from '@ionic/angular';
-import {Emoji} from "../../../mood/models/types";
-import {EmojiEditorComponent} from "../../../mood/components/emoji-editor/emoji-editor.component";
 import {ModalDescriptionComponent} from "../modal-description/modal-description.component";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-square',
   templateUrl: './square.component.html',
   styleUrls: ['./square.component.scss'],
 })
-export class SquareComponent  implements OnInit, OnDestroy {
+export class SquareComponent implements OnInit, OnDestroy {
 
-  numbers!: Square[];
-  numbersRowAndCol!: RowAndCol[];
+  squareSub!: Subscription;
+  colAndRowSub!: Subscription;
+  numbersOfTheSquare!: Square[];
+  numbersOfRowAndCol!: RowAndCol[];
   birthday!: string;
 
   constructor(
     public numerologyService: NumerologyService,
     private activatedRoute: ActivatedRoute,
     private modalController: ModalController
-    ) { }
+  ) {
+  }
 
   ngOnInit() {
     this.birthday = this.activatedRoute.snapshot.params['date']
-    this.numbers = this.numerologyService.selectedDate(this.birthday);
-    this.numbersRowAndCol = this.numerologyService.colAndRowNumbers(this.numbers);
+    this.squareSub = this.numerologyService.getNumbersOfTheSquare(this.birthday)
+      .subscribe(square => this.numbersOfTheSquare = square);
+    this.colAndRowSub = this.numerologyService.getNumbersOfColAndRow(this.numbersOfTheSquare)
+      .subscribe(rowAndCol => this.numbersOfRowAndCol = rowAndCol);
   }
 
   async openModalDescription(title: string, text: string) {
@@ -48,5 +51,7 @@ export class SquareComponent  implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.closeModalDescription();
+    this.squareSub.unsubscribe();
+    this.colAndRowSub.unsubscribe();
   }
 }

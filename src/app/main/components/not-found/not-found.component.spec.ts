@@ -1,7 +1,7 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import {IonicModule} from '@ionic/angular';
 
-import { NotFoundComponent } from './not-found.component';
+import {NotFoundComponent} from './not-found.component';
 
 describe('NotFoundComponent', () => {
   let component: NotFoundComponent;
@@ -9,7 +9,7 @@ describe('NotFoundComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ NotFoundComponent ],
+      declarations: [NotFoundComponent],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

@@ -1,7 +1,7 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import {IonicModule} from '@ionic/angular';
 
-import { StartPageComponent } from './start-page.component';
+import {StartPageComponent} from './start-page.component';
 
 describe('StartPageComponent', () => {
   let component: StartPageComponent;
@@ -9,7 +9,7 @@ describe('StartPageComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ StartPageComponent ],
+      declarations: [StartPageComponent],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

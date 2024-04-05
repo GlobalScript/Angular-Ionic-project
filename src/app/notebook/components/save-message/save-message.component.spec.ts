@@ -1,7 +1,7 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import {IonicModule} from '@ionic/angular';
 
-import { SaveMessageComponent } from './save-message.component';
+import {SaveMessageComponent} from './save-message.component';
 
 describe('SaveMessageComponent', () => {
   let component: SaveMessageComponent;
@@ -9,7 +9,7 @@ describe('SaveMessageComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ SaveMessageComponent ],
+      declarations: [SaveMessageComponent],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

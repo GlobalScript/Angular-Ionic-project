@@ -1,6 +1,6 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { BalanceChartService } from './balance-chart.service';
+import {BalanceChartService} from './balance-chart.service';
 
 describe('BalanceChartService', () => {
   let service: BalanceChartService;

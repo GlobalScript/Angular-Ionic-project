@@ -1,7 +1,7 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import {IonicModule} from '@ionic/angular';
 
-import { AreaEditorComponent } from './area-editor.component';
+import {AreaEditorComponent} from './area-editor.component';
 
 describe('AreaEditorComponent', () => {
   let component: AreaEditorComponent;
@@ -9,7 +9,7 @@ describe('AreaEditorComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ AreaEditorComponent ],
+      declarations: [AreaEditorComponent],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

@@ -4,7 +4,8 @@ import {MoodPageComponent} from "./components/mood-page/mood-page.component";
 import {EditorPageComponent} from "./components/editor-page/editor-page.component";
 
 const routes: Routes = [
-  {path: '',
+  {
+    path: '',
     component: MoodPageComponent
   },
   {

@@ -1,14 +1,19 @@
 import {Injectable} from '@angular/core';
-import {CharacterTraits, RowAndCol, Square} from "../models/types";
-import {NumerologyDescriptionService} from "./numerology-description.service";
+import {CharacterTraits, Description, FullDescription, RowAndCol, Square} from "../models/types";
+import {TranslateService} from "@ngx-translate/core";
+import {map, Observable} from "rxjs";
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class NumerologyService {
 
-  constructor(private numDescription: NumerologyDescriptionService) {
+  private description!: Description;
+
+  constructor(private translateService: TranslateService) {
   }
+
 
   private summarize(sort: Square[], oneNum: number, twoNum: number, threeNum: number): number {
     return (sort[oneNum].result + sort[twoNum].result + sort[threeNum].result).length
@@ -39,15 +44,15 @@ export class NumerologyService {
 
   private sortNumbers(allNumbers: string): Square[] {
     const sort = [
-      {title: "характер", figure: 1, result: '', description: ''},
-      {title: "здоров'я", figure: 4, result: '', description: ''},
-      {title: "везіння", figure: 7, result: '', description: ''},
-      {title: "енергетика", figure: 2, result: '', description: ''},
-      {title: "логіка", figure: 5, result: '', description: ''},
-      {title: "обов'язок", figure: 8, result: '', description: ''},
-      {title: "навчання", figure: 3, result: '', description: ''},
-      {title: "працьовитість", figure: 6, result: '', description: ''},
-      {title: "пам'ять", figure: 9, result: '', description: ''}
+      {title: "numerology.character", figure: 1, result: '', description: ''},
+      {title: "numerology.health", figure: 4, result: '', description: ''},
+      {title: "numerology.luck", figure: 7, result: '', description: ''},
+      {title: "numerology.energy", figure: 2, result: '', description: ''},
+      {title: "numerology.logic", figure: 5, result: '', description: ''},
+      {title: "numerology.duty", figure: 8, result: '', description: ''},
+      {title: "numerology.learning", figure: 3, result: '', description: ''},
+      {title: "numerology.diligence", figure: 6, result: '', description: ''},
+      {title: "numerology.memory", figure: 9, result: '', description: ''}
     ];
     allNumbers.split('').map(item => {
       switch (item) {
@@ -81,19 +86,19 @@ export class NumerologyService {
       }
     });
 
-    sort[0].description = this.showDescription(sort[0].result, this.numDescription.description.dataNumbers.oneNum);
-    sort[1].description = this.showDescription(sort[1].result, this.numDescription.description.dataNumbers.fourNum);
-    sort[2].description = this.showDescription(sort[2].result, this.numDescription.description.dataNumbers.sevenNum);
-    sort[3].description = this.showDescription(sort[3].result, this.numDescription.description.dataNumbers.twoNum);
-    sort[4].description = this.showDescription(sort[4].result, this.numDescription.description.dataNumbers.fiveNum);
-    sort[5].description = this.showDescription(sort[5].result, this.numDescription.description.dataNumbers.eightNum);
-    sort[6].description = this.showDescription(sort[6].result, this.numDescription.description.dataNumbers.threeNum);
-    sort[7].description = this.showDescription(sort[7].result, this.numDescription.description.dataNumbers.sixNum);
-    sort[8].description = this.showDescription(sort[8].result, this.numDescription.description.dataNumbers.nineNum);
+    sort[0].description = this.showDescription(sort[0].result, this.description.dataNumbers.oneNum);
+    sort[1].description = this.showDescription(sort[1].result, this.description.dataNumbers.fourNum);
+    sort[2].description = this.showDescription(sort[2].result, this.description.dataNumbers.sevenNum);
+    sort[3].description = this.showDescription(sort[3].result, this.description.dataNumbers.twoNum);
+    sort[4].description = this.showDescription(sort[4].result, this.description.dataNumbers.fiveNum);
+    sort[5].description = this.showDescription(sort[5].result, this.description.dataNumbers.eightNum);
+    sort[6].description = this.showDescription(sort[6].result, this.description.dataNumbers.threeNum);
+    sort[7].description = this.showDescription(sort[7].result, this.description.dataNumbers.sixNum);
+    sort[8].description = this.showDescription(sort[8].result, this.description.dataNumbers.nineNum);
     return sort;
   }
 
-  selectedDate(date: string): Square[] {
+  private selectedDate(date: string): Square[] {
     const value = date.split('-');
     const year = value[0];
     const month = String(parseInt(value[1], 10));
@@ -117,77 +122,77 @@ export class NumerologyService {
     return this.sortNumbers(allNumbers);
   }
 
-  colAndRowNumbers(sort: Square[]): RowAndCol[] {
+  private colAndRowNumbers(sort: Square[]): RowAndCol[] {
     const comparison = {title: '', result: 0, description: ''};
     const spirituality = this.summarize(sort, 0, 4, 8);
     const temperament = this.summarize(sort, 2, 4, 6);
 
     if (spirituality === temperament) {
-      comparison.title = "рівновага";
+      comparison.title = "numerology.balance";
       comparison.result = 0;
-      comparison.description = this.numDescription.description.maxDiag.equality;
+      comparison.description = this.description.maxDiag.equality;
     } else {
-      comparison.title = spirituality > temperament ? "духовність" : "темперамент";
+      comparison.title = spirituality > temperament ? "numerology.spirituality" : "numerology.temperament";
       comparison.result = spirituality > temperament ? spirituality : temperament;
-      comparison.description = spirituality > temperament ? this.numDescription.description.maxDiag.max159 : this.numDescription.description.maxDiag.max753;
+      comparison.description = spirituality > temperament ? this.description.maxDiag.max159 : this.description.maxDiag.max753;
     }
 
     return [
       {
-        title: "рішучість",
+        title: "numerology.determination",
         img: "/assets/rows-and-cols/147.png",
         result: this.summarize(sort, 0, 1, 2),
         description: this.showDescription(this.summarize(sort, 0, 1, 2),
-          this.numDescription.description.dataRow.row147)
+          this.description.dataRow.row147)
       },
       {
-        title: "сімейність",
+        title: "numerology.family",
         img: "/assets/rows-and-cols/258.png",
         result: this.summarize(sort, 3, 4, 5),
         description: this.showDescription(this.summarize(sort, 3, 4, 5),
-          this.numDescription.description.dataRow.row258)
+          this.description.dataRow.row258)
       },
       {
-        title: "стабільність",
+        title: "numerology.stability",
         img: "/assets/rows-and-cols/369.png",
         result: this.summarize(sort, 6, 7, 8),
         description: this.showDescription(this.summarize(sort, 6, 7, 8),
-          this.numDescription.description.dataRow.row369)
+          this.description.dataRow.row369)
       },
       {
-        title: "самооцінка",
+        title: "numerology.esteem",
         img: "/assets/rows-and-cols/123.png",
         result: this.summarize(sort, 0, 3, 6),
         description: this.showDescription(this.summarize(sort, 0, 3, 6),
-          this.numDescription.description.dataCol.col123)
+          this.description.dataCol.col123)
       },
       {
-        title: "достаток",
+        title: "numerology.abundance",
         img: "/assets/rows-and-cols/456.png",
         result: this.summarize(sort, 1, 4, 7),
         description: this.showDescription(this.summarize(sort, 1, 4, 7),
-          this.numDescription.description.dataCol.col456)
+          this.description.dataCol.col456)
       },
       {
-        title: "талант",
+        title: "numerology.talent",
         img: "/assets/rows-and-cols/789.png",
         result: this.summarize(sort, 2, 5, 8),
         description: this.showDescription(this.summarize(sort, 2, 5, 8),
-          this.numDescription.description.dataCol.col789)
+          this.description.dataCol.col789)
       },
       {
-        title: "духовність",
+        title: "numerology.spirituality",
         img: "/assets/rows-and-cols/159.png",
         result: this.summarize(sort, 0, 4, 8),
         description: this.showDescription(this.summarize(sort, 0, 4, 8),
-          this.numDescription.description.dataDiag.diag159)
+          this.description.dataDiag.diag159)
       },
       {
-        title: "темперамент",
+        title: "numerology.temperament",
         img: "/assets/rows-and-cols/753.png",
         result: this.summarize(sort, 2, 4, 6),
         description: this.showDescription(this.summarize(sort, 2, 4, 6),
-          this.numDescription.description.dataDiag.diag753)
+          this.description.dataDiag.diag753)
       },
       {
         title: comparison.title,
@@ -198,7 +203,7 @@ export class NumerologyService {
     ]
   }
 
-  fullDescription(birthday: string) {
+  private fullDescription(birthday: string): FullDescription[] {
     const numbers = this.selectedDate(birthday)
     const description = [
       {title: numbers[0].title, text: numbers[0].description},
@@ -213,6 +218,33 @@ export class NumerologyService {
     ];
     this.colAndRowNumbers(numbers).map(item => description.push({title: item.title, text: item.description}));
     return description;
+  }
+
+  getNumbersOfTheSquare(date: string): Observable<Square[]> {
+    return this.translateService
+      .get('description')
+      .pipe(map(translate => {
+        this.description = translate;
+        return this.selectedDate(date)
+      }));
+  }
+
+  getNumbersOfColAndRow(sort: Square[]): Observable<RowAndCol[]> {
+    return this.translateService
+      .get('description')
+      .pipe(map(translate => {
+        this.description = translate;
+        return this.colAndRowNumbers(sort)
+      }));
+  }
+
+  getFullDescription(birthday: string): Observable<FullDescription[]> {
+    return this.translateService
+      .get('description')
+      .pipe(map(translate => {
+        this.description = translate;
+        return this.fullDescription(birthday)
+      }))
   }
 }
 

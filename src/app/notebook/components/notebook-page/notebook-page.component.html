@@ -1,11 +1,15 @@
 <app-header [headerSetting]="{backBtn: true}">
-  <ion-button color="medium" routerLink="create">
+  <ion-button color="medium" routerLink="create" [disabled]="!auth.isLoggedIn()">
     <ion-icon name="add-outline"></ion-icon>
   </ion-button>
 </app-header>
 <ion-content>
   <div class="note-wrapper">
     <ul class="note-list">
+      <li class="note-item" *ngIf="!auth.isLoggedIn()">
+        <div class="note-date">{{ today | monthName: 'full'}}</div>
+        <div class="note-title">{{'notebook.demoTitle' | translate}}</div>
+      </li>
       <li *ngFor="let note of notes | async; index as i" class="note-item" (click)="readNote(note,i)">
         <div class="note-date">{{note.timestamp | monthName: 'full'}}</div>
         <div class="note-title">{{note.title}}</div>

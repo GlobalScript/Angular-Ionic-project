@@ -6,8 +6,11 @@
           <span [innerHTML]="emotion.emoji" class="modal-emoji-item"></span>
         </ion-col>
         <ion-col class="ion-text-center">
-          <input type="text" [(ngModel)]="emotion.title" class="modal-editor-input" maxlength="15"
-                 (blur)="settingChange()" (keyup.enter)="settingChange()">
+          <input type="text" [(ngModel)]="emotionTitleChange" class="modal-editor-input" maxlength="15"
+                 (blur)="settingChange()"
+                 (keyup.enter)="settingChange()"
+                 [disabled]="!auth.isLoggedIn()"
+                 [placeholder]="!auth.isLoggedIn() ? 'Demo' : (emotion.title | translate)">
         </ion-col>
       </ion-row>
       <ion-row class="ion-justify-content-center">

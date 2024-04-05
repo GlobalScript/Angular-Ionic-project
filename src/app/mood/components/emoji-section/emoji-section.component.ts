@@ -1,4 +1,4 @@
-import {Component, Input, Output, EventEmitter, ViewChild} from '@angular/core';
+import {Component, EventEmitter, Input, Output, ViewChild} from '@angular/core';
 import {Emoji, Month} from '../../models/types';
 import {MoodCrudService} from "../../services/mood-crud.service";
 import {MoodChartService} from "../../services/mood-chart.service";

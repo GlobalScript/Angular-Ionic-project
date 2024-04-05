@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {AuthService} from "../../auth/services/auth.service";
 import {map, Observable} from "rxjs";
 
@@ -12,8 +12,8 @@ export class BalanceCrudService {
   constructor(private authService: AuthService) {
   }
 
- async createBalance(levels: number[]) {
-   await this.authService.getUserRef().update({balance: levels})
+  async createBalance(levels: number[]) {
+    await this.authService.getUserRef().update({balance: levels})
   }
 
   readBalance(): Observable<number[]> {

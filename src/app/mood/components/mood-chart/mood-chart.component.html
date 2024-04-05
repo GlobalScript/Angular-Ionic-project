@@ -1,9 +1,9 @@
-  <ion-card>
-    <ion-card-content>
-      <div class="chart-card">
-          <canvas baseChart #chart height="150" width="600" [type]="'line'" [data]="lineChartData"
-                  [options]="lineChartOptions" [legend]="true" (chartClick)="moodLevel($event)">
-          </canvas>
-      </div>
-    </ion-card-content>
-  </ion-card>
+<ion-card>
+  <ion-card-content>
+    <div class="chart-card">
+      <canvas baseChart #chart height="150" width="600" [type]="'line'" [data]="lineChartData"
+              [options]="lineChartOptions" [legend]="true" (chartClick)="moodLevel($event)">
+      </canvas>
+    </div>
+  </ion-card-content>
+</ion-card>

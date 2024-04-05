@@ -1,11 +1,11 @@
-<app-header>{{auth.getUserName()}}</app-header>
+<app-header [headerSetting]="{translate: true}">{{auth.getUserName()}}</app-header>
 <ion-content>
   <div class="start-page">
-  <div class="content-wrapper">
-    <div class="square" *ngFor="let section of sections" [routerLink]="section.path" >
-      <ion-icon [name]="section.icon"></ion-icon>
-      <span>{{section.title}}</span>
+    <div class="content-wrapper">
+      <div class="square" [routerLink]="section.path" *ngFor="let section of category">
+        <ion-icon [name]="section.icon"></ion-icon>
+        <span>{{section.title | translate}}</span>
+      </div>
     </div>
-  </div>
   </div>
 </ion-content>

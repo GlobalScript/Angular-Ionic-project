@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {ModalController} from "@ionic/angular";
 
 @Component({
@@ -6,14 +6,15 @@ import {ModalController} from "@ionic/angular";
   templateUrl: './modal-description.component.html',
   styleUrls: ['./modal-description.component.scss'],
 })
-export class ModalDescriptionComponent  implements OnInit {
+export class ModalDescriptionComponent {
 
   @Input() title!: string;
   @Input() text!: string;
 
-  constructor(private modalController: ModalController) { }
+  constructor(private modalController: ModalController) {
+  }
 
-  ngOnInit() {}
+
 
   async close() {
     await this.modalController.dismiss();

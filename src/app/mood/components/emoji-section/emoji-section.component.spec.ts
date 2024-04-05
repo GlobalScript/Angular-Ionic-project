@@ -1,7 +1,7 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import {IonicModule} from '@ionic/angular';
 
-import { EmojiSectionComponent } from './emoji-section.component';
+import {EmojiSectionComponent} from './emoji-section.component';
 
 describe('EmojiSectionComponent', () => {
   let component: EmojiSectionComponent;
@@ -9,7 +9,7 @@ describe('EmojiSectionComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ EmojiSectionComponent ],
+      declarations: [EmojiSectionComponent],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

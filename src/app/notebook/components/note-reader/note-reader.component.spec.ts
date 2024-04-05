@@ -1,7 +1,7 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import {IonicModule} from '@ionic/angular';
 
-import { NoteReaderComponent } from './note-reader.component';
+import {NoteReaderComponent} from './note-reader.component';
 
 describe('NoteReaderComponent', () => {
   let component: NoteReaderComponent;
@@ -9,7 +9,7 @@ describe('NoteReaderComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ NoteReaderComponent ],
+      declarations: [NoteReaderComponent],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

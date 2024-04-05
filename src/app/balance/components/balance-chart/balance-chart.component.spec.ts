@@ -1,7 +1,7 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import {IonicModule} from '@ionic/angular';
 
-import { BalanceChartComponent } from './balance-chart.component';
+import {BalanceChartComponent} from './balance-chart.component';
 
 describe('BalanceChartComponent', () => {
   let component: BalanceChartComponent;
@@ -9,7 +9,7 @@ describe('BalanceChartComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ BalanceChartComponent ],
+      declarations: [BalanceChartComponent],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

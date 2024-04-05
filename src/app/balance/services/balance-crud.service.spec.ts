@@ -1,6 +1,6 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { BalanceCrudService } from './balance-crud.service';
+import {BalanceCrudService} from './balance-crud.service';
 
 describe('BalanceCrudService', () => {
   let service: BalanceCrudService;

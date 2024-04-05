@@ -1,12 +1,13 @@
-import { Injectable } from '@angular/core';
-import { Month, DataMonth } from '../models/types';
+import {Injectable} from '@angular/core';
+import {DataMonth, Month} from '../models/types';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MoodChartService {
 
-  constructor() { }
+  constructor() {
+  }
 
   private activeItem: boolean = false;
 
@@ -23,7 +24,7 @@ export class MoodChartService {
 
   private moodLevels(levels: number[], numberOfDays: number): number[] {
     let nextNumber: number = 0;
-    return Array.from({ length: numberOfDays }, (_, index) => index + 1).map((_, index) => {
+    return Array.from({length: numberOfDays}, (_, index) => index + 1).map((_, index) => {
       const itemLevel: number | undefined = levels[index];
       if (itemLevel || itemLevel === 0) {
         nextNumber = itemLevel
@@ -57,7 +58,7 @@ export class MoodChartService {
       this.activeItem = true;
     }
     return {
-      days: Array.from({ length: date.daysInMonth }, (_, index) => index + 1),
+      days: Array.from({length: date.daysInMonth}, (_, index) => index + 1),
       month: date.month,
       year: date.year,
       levels: this.moodLevels(monthData?.levels || [], currentDay),
@@ -69,7 +70,7 @@ export class MoodChartService {
     this.activeItem = false;
     const date = this.dateOptions(month.timestamp);
     return {
-      days: Array.from({ length: date.daysInMonth }, (_, index) => index + 1),
+      days: Array.from({length: date.daysInMonth}, (_, index) => index + 1),
       month: date.month,
       year: date.year,
       levels: this.moodLevels(month.levels, date.daysInMonth),

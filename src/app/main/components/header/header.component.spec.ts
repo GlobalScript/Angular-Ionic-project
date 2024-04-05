@@ -1,7 +1,7 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import {IonicModule} from '@ionic/angular';
 
-import { HeaderComponent } from './header.component';
+import {HeaderComponent} from './header.component';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -9,7 +9,7 @@ describe('HeaderComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ HeaderComponent ],
+      declarations: [HeaderComponent],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

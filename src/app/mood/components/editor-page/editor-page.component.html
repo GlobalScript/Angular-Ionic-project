@@ -1,7 +1,7 @@
 <app-header [headerSetting]="{backBtn: true, link: '/mood'}">
   <ion-button color="medium" (click)="emojiService.resetSetting()">
-  Скинути налаштування
-</ion-button>
+    {{"mood.reset" | translate}}
+  </ion-button>
 </app-header>
 <ion-content>
   <div class="emoji">
@@ -10,9 +10,9 @@
         <div class="emoji-item-level">
           <div class="emoji-item-degree">{{item.level}}</div>
         </div>
-        <div class="emoji-item-title">{{item.title}}</div>
+        <div class="emoji-item-title">{{item.title | translate}}</div>
         <div class="emoji-item-emoji" [innerHTML]="item.emoji"></div>
       </li>
     </ul>
   </div>
-  </ion-content>
+</ion-content>
